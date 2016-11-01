@@ -17,7 +17,7 @@ $mensaje=$_GET['msm'];
     <body>
 
 
-	<div id="myModal" class="modal fade">
+	<div id="myModal" class="modal fade" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
 		<?php if ($mensaje){ ?>
@@ -59,6 +59,7 @@ $mensaje=$_GET['msm'];
         $(document).ready(function(){
                 $("#myModal").modal('show');
         });
+
 	</script>
 
 </html>

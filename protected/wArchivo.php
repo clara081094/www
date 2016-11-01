@@ -6,6 +6,7 @@ $passw=$_POST['new_password'];
 echo "username: ".$username." password:".$passw;
 $texto="";
 
+if($passw!=null){
 while(!feof($fh)) {
 	$users = fgets($fh);
 	$texto.= $users;
@@ -20,11 +21,14 @@ while(!feof($fh)) {
 }
 
 fclose($fh);
-//echo $texto;
 
 $myfile = fopen($myFile, "w");
 fwrite($myfile, $texto);
 fclose($myfile);
 
-header('Location: '."../sip");
+$msm="El password del usuario ".$_POST['showId']." se modifico correctamente";
+
+echo $msm;
+}
+header('Location: '."../sip?msm=".$msm);
 ?>
