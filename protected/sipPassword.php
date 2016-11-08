@@ -7,7 +7,7 @@ $msm = $_GET['msm'];
 <html>
  <head>
         <meta charset="utf-8">
-        <title>USUARIOS SIP</title>
+        <title>EXTENSIONES SIP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
@@ -31,7 +31,7 @@ $msm = $_GET['msm'];
         <div id="principal" class="container">
            <div class="row">
 		<div class="col-sm-4">
-		<h1>USUARIOS-SIP</h1>
+		<h1>EXTENSIONES-SIP</h1>
 		<table class="table">
 		<thead>
 			
@@ -40,7 +40,7 @@ $msm = $_GET['msm'];
 			<?php $usuarios=$sip->userSip(); ?>
 			<?php for($i=0;$i<sizeof($usuarios);$i++){ ?>
 			<tr>
-			<td><?php echo "USER: ".$usuarios[$i]; ?></td>
+			<td><?php echo "EXTENSION ".$usuarios[$i]; ?></td>
 			<td><a data-toggle="modal" data-id="<?php echo $usuarios[$i];?>" class="open btn btn-danger" href="#confirm-change">CAMBIAR PASSWORD</a></td>
 			</tr>
 			<?php	} ?>
@@ -55,12 +55,12 @@ $msm = $_GET['msm'];
         	<div class="modal-content">
 		<div class="modal-header">
 		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">CAMBIO PASSWORD DEL USUARIO <span id="demo"></span></h4>
+                    <h4 class="modal-title">CAMBIO PASSWORD DE LA EXTENSION <span id="demo"></span></h4>
                 </div>
                 <div class="modal-body">
                     <form id='login' action='archivo' method='post' accept-charset='UTF-8'>
 			<input type="hidden" name="showId" id="showId" value=""/>
-                        <label for='password' >Ingrese el nuevo Password del user:</label></br>
+                        <label for='password' >Ingrese el nuevo Password de la extension:</label></br>
                         <input type='password' name='new_password' id='password' maxlength="20" /></br></br>
 
                         <button type="submit" class="btn btn-default" name="paraCliente">CAMBIAR</button></br>
