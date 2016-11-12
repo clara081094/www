@@ -91,6 +91,12 @@ function cambiarPassword($usr,$ppass,$npass)
        return "Error de password";
 }
 
+function borrarMensajes()
+{
+    $sql="delete from Mensajes";
+    $this->datos->ingresarLinea($sql);  
+}
+
 }
 ?>
 

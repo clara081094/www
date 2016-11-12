@@ -9,7 +9,7 @@ if ($_GET['some_path'])
     echo shell_exec($pate);
     $pate=str_replace("wav", "txt", $pate);
     echo shell_exec($pate);
-    header('Location: '."../grabaciones?msm="."Se elimino archivo");
+    header('Location: '."../reportes_telefonicos?msm="."Se elimino archivo");
 }
 
 function getTag($myfile) {
@@ -31,14 +31,14 @@ function getTag($myfile) {
 }
 
 //Tiempo que demora la pagina para refrescarse
-header("refresh: 25; url=../grabaciones");
+header("refresh: 25; url=../reportes_telefonicos");
 $files = scandir('/var/spool/asterisk/voicemail/buzon/22/INBOX/');
 
 ?>
 <html>
     <head>
 	<meta charset="utf-8">
-	<title>Buzon de Voz</title>
+	<title>REPORTES TELEFONICOS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
@@ -50,7 +50,7 @@ $files = scandir('/var/spool/asterisk/voicemail/buzon/22/INBOX/');
 	<div id="principal" class="container">
 	   <div class="row">
 		<div class="col-sm-4">
-		 <h3>GRABACIONES</h3>
+		 <h3>REPORTES TELEFONICOS</h3>
 		 <ul class="list-group">
 		 <?php foreach($files as $file){ ?>
 		 <?php if(strcmp($file,".")!=0&&strcmp($file,"..")!=0){
@@ -70,7 +70,7 @@ $files = scandir('/var/spool/asterisk/voicemail/buzon/22/INBOX/');
         		<tbody>
       			<tr>
         			<td><a href="../../../spool/asterisk/voicemail/buzon/22/INBOX/<?php echo $file; ?>" download><?php echo $file; ?></a></td>
-        			<td>&nbsp&nbsp <a href="#" data-href="../grabaciones?some_path=<?php echo $file; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">DELETE</a></td>
+        			<td>&nbsp&nbsp <a href="#" data-href="../reportes_telefonicos?some_path=<?php echo $file; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">DELETE</a></td>
       			</tr>
        			</tbody>
       			</table>

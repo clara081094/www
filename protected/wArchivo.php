@@ -32,6 +32,6 @@ $sip = new Confami();
 $sip->reloadSip();
 echo shell_exec("sleep 2");
 }
-header('Location: '."../sip?msm=".$msm);
+header('Location: '."../extensiones?msm=".$msm);
 
 ?>

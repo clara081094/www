@@ -25,7 +25,7 @@ $msm = $_GET['msm'];
 		</div></div>
 	</div>
 	</div><?php 
-		header("refresh: 2; url=../sip");
+		header("refresh: 2; url=../extensiones");
 	}?> 
 	
         <div id="principal" class="container">

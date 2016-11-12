@@ -1,15 +1,37 @@
 <?php
 
 //$user=$_POST['usuario'];
-$npass=$_POST['new_password'];
-
-$user="user";
+$user="";
+$archivo="";
+$pass="";
 //$npass="angel";
 
-//comandos para cambiar el password 
-$msm= shell_exec("htpasswd -b /etc/apache2/.htpasswd ".$user." ".$npass);
-$msm="El password se modifico";
+if(isset($_POST["btngra"]))
+{
+	$user="grabador";
+	$archivo=".htgrabador";
+	$pass=$_POST["passw_gra"];
+}
+if(isset($_POST["btnope"]))
+{
+	$user="operador";
+	$archivo=".htoperador";
+	$pass=$_POST["passw_ope"];
+}
 
-header('Location: '."../configuracion?msm=".$msm);
+if(isset($_POST["btnadm"]))
+{
+        $user="administrador";
+	$archivo="special/.htpasswd";
+	$pass=$_POST["passw_adm"];
+}
+
+//comandos para cambiar el password 
+echo shell_exec("htpasswd -b /etc/apache2/".$archivo." ".$user." ".$pass);
+$msm="El password se modifico";
+//echo shell_exec("sleep 2");
+
+//echo "htpasswd -b /etc/apache2/".$archivo." ".$user." ".$pass;
+header('Location: '."../seguridad?msm=".$msm);
 
 ?>

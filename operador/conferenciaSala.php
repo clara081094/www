@@ -2,12 +2,12 @@
     include_once '/home/confAMI.php';
     include_once '/var/www/html/participante.php';
     $conferencia = new Confami(); 
-    header("refresh: 3; url=../sala");
+    header("refresh: 3; url=../gestion_conferencia");
 ?>
 <html>
     <head>
 	<meta charset="utf-8">
-	<title>CONFERENCIA</title>
+	<title>GESTION CONFERENCIA</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">

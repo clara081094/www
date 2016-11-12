@@ -8,16 +8,16 @@ if ($_GET['some_path'])
     $pate="rm -rf /var/spool/asterisk/confbridge/".$pate;
     echo $pate;
     echo shell_exec($pate);
-    header('Location: '."../conferencias?msm="."Se elimino archivo");
+    header('Location: '."../conferencias_telefonicas?msm="."Se elimino archivo");
 }
  
-header("refresh: 25; url=../conferencias");
+header("refresh: 25; url=../conferencias_telefonicas");
 $files = scandir('/var/spool/asterisk/confbridge/');
 ?>
 <html>
     <head>
 	<meta charset="utf-8">
-	<title>Conferencias</title>
+	<title>CONFERENCIAS TELEFONICAS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
@@ -30,7 +30,7 @@ $files = scandir('/var/spool/asterisk/confbridge/');
 	<div id="principal" class="container">
 	   <div class="row">
 		<div class="col-sm-4">
-		 <h3>CONFERENCIAS</h3>
+		 <h3>CONFERENCIAS TELEFONICAS</h3>
 		 <ul class="list-group">
 		 <?php foreach($files as $file){ ?>
 		 <?php if(strcmp($file,".")!=0&&strcmp($file,"..")!=0){ ?>
@@ -39,7 +39,7 @@ $files = scandir('/var/spool/asterisk/confbridge/');
 	<tbody>
       <tr>
         <td><a href="../../spool/asterisk/confbridge/<?php echo $file; ?>" download><?php echo $file; ?></a></td>
-	<td>&nbsp&nbsp<a href="#" data-href="../conferencias?some_path=<?php echo $file; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">DELETE</a></td>
+	<td>&nbsp&nbsp<a href="#" data-href="../conferencias_telefonicas?some_path=<?php echo $file; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">DELETE</a></td>
       </tr>
        </tbody>
       </table>
