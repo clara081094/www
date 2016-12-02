@@ -1,8 +1,10 @@
 <?php
     include_once '/home/confAMI.php';
     include_once '/var/www/html/participante.php';
+    include_once '/var/www/html/funciones.php';
     $conferencia = new Confami(); 
-    header("refresh: 3; url=../gestion_conferencia");
+    $bd = new Funciones();
+    header("refresh: 4; url=../gestion_conferencia");
 ?>
 <html>
     <head>
@@ -24,29 +26,47 @@
 		 <br>
 		 <table class="table">
 		    <thead><tr>
-			 <th>ID</th><th>CHANNEL</th><th>NUMERO</th>
+			 <th>ID</th><th>NOMBRE</th><th>TELEFONO</th>
 			 <th></th><th></th><th>VOLUMEN</th>
 		    </tr></thead>
 		    <tbody>
 			<?php for($i=0;$i<sizeof($usuarios);$i++){ ?>
-			<tr><form action='salaconf' method='post'>
+                        <tr  valign="middle"><form action='salaconf' method='post'>
+                         
 			 <td><?php echo $i+1; ?></td>
-			 <td><?php echo $usuarios[$i]->getChannel(); ?></td>
-			 <input type="hidden" name="channel" value=<?php echo $usuarios[$i]->getChannel(); ?>>
-			 <td><?php echo $usuarios[$i]->getNumero(); ?></td>
+
+			 <td valign="middle"><?php 
+                                //echo "lo que pasa".$usuarios[$i]->getNumero();
+                                if($bd->versiNombres($usuarios[$i]->getNumero()))
+                                {?>
+                                 <a href=""><?php echo $bd->verNombre($usuarios[$i]->getNumero())[0][0]; ?></a>
+                                <?php }else{?>
+                                 <a href=""><?php echo "EDITAR"; ?></a>
+                                <?php }?>
+                        </td>
+
+                         <?php //antes se mostraba el channel echo $usuarios[$i]->getChannel(); ?>
+			 
+			 <td valign="middle"><?php echo $usuarios[$i]->getNumero();?></td>
+                         <input type="hidden" name="channel" value=<?php echo $usuarios[$i]->getChannel(); ?>>
+                         
 			 <td> <input class="btn btn-primary" type="submit" name="btnkick" value="KICK" onclick="return confirm('Desea colgar al invitado?');return false;" /></td>
-			 <?php  $mut=$usuarios[$i]->getMuted(); $mu="No";
-		         if(strcmp($mu,$mut)==0){ ?>
-			 <td><input type="submit" class="btn btn-default" name="btnmute" value="MUTE" /></td>
+                         
+			 <?php $mut=$usuarios[$i]->getMuted(); $mu="No";
+			 if(strcmp($mu,$mut)==0){ ?>
+                         <td><input type="submit" class="btn btn-default" name="btnmute" value="MUTE" /></td>
+                         
 			 <?php }else{ ?>
-			 <td><input type="submit" class="btn btn-danger" name="btnunmute" value="UNMUTE" /></td>
-			 <?php } ?>
+                         <td><input type="submit" class="btn btn-danger" name="btnunmute" value="UNMUTE" /></td>
+                         <?php } ?>
+                         
 			 <td><button type="button" class="btn btn-default" aria-label="Left Align">
-			     <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
-			     <button type="button" class="btn btn-default" aria-label="Left Align">
+                             <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
+                             <button type="button" class="btn btn-default" aria-label="Left Align">
                              <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></td>
-		        </form>
-			</tr><?php } ?>
+                        </form>
+                        </tr>
+			<?php } ?>
 		    </tbody>
 		 </table>
 		</div>
@@ -58,7 +78,6 @@
 
       </div>
       </div>
-
 
     </body>
 	

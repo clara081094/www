@@ -97,35 +97,14 @@ function borrarMensajes()
     $this->datos->ingresarLinea($sql);  
 }
 
-function versiNombres($tlf)
+function versiNombre($tlf)
 {
     $sql="select nombres from Pbook where tlf='".$tlf."'";
     $valor=$this->datos->consultaFila($sql);
-    //echo "lo que salio en la con: "."sql:".$sql." ".$valor;
-
     if($valor==NULL)
-        return false; //retorna false porque no existe contacto con ese numero
-    else
         return true;
-}
-
-function verNombre($tlf)
-{
-    $sql="select nombres from Pbook where tlf='".$tlf."'";
-    $valor=$this->datos->consultaFila($sql);
-    return $valor;
-}
-
-function retornarCont()
-{
-    $sql="select * from Pbook";
-    $valor=$this->datos->consultaFila($sql);
-    return $valor;
-}
-
-function ingresarContact($nombre,$tlf){
-    $sql="insert into Pbook (nombres,tlf) values ('".$nombre."','".$tlf."')"; 
-    $this->datos->ingresarLinea($sql);
+    else
+        return false;
 }
 
 }
