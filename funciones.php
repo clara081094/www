@@ -1,7 +1,7 @@
 <?php
 include '/var/www/html/mensaje.php';
+include '/var/www/html/operador/contacto.php';
 include '/var/www/html/bd.php';
-include '/var/www/html/usuario.php';
 
 class Funciones {
 
@@ -118,13 +118,33 @@ function verNombre($tlf)
 
 function retornarCont()
 {
-    $sql="select * from Pbook";
-    $valor=$this->datos->consultaFila($sql);
-    return $valor;
+    $contactos=array();
+    $contacto=new Contacto();
+    $contador=0;
+    $query="select * from Pbook";
+    $conjunto = $this->datos->consultaFila($query);
+    while($contador<count($conjunto)){
+        $contacto->setContacto($conjunto[$contador]['id'],$conjunto[$contador]['nombres'],$conjunto[$contador]['tlf'],$conjunto[$contador]['referencia']);
+        array_push($contactos, $contacto);
+        $contador++;
+        $contacto=new Contacto();
+    }
+    return $contactos;
+
 }
 
-function ingresarContact($nombre,$tlf){
-    $sql="insert into Pbook (nombres,tlf) values ('".$nombre."','".$tlf."')"; 
+function ingresarContact($nombre,$tlf,$ref){
+    $sql="insert into Pbook (nombres,tlf,referencia) values ('".$nombre."','".$tlf."','".$ref."')"; 
+    $this->datos->ingresarLinea($sql);
+}
+
+function editarContact($id,$nombre,$tlf,$ref){
+    $sql="update Pbook set nombres='".$nombre."',tlf='".$tlf."',referencia='".$ref."' where id=".$id."";
+    $this->datos->ingresarLinea($sql);
+}
+
+function deleteContact($id){
+    $sql="delete from Pbook where id=".$id;
     $this->datos->ingresarLinea($sql);
 }
 

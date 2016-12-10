@@ -34,16 +34,14 @@
                         <tr  valign="middle"><form action='salaconf' method='post'>
                          
 			 <td><?php echo $i+1; ?></td>
-
-			 <td valign="middle"><?php 
+			 <?php
                                 //echo "lo que pasa".$usuarios[$i]->getNumero();
                                 if($bd->versiNombres($usuarios[$i]->getNumero()))
                                 {?>
-                                 <a href=""><?php echo $bd->verNombre($usuarios[$i]->getNumero())[0][0]; ?></a>
+                                 <td><a href="../phonebook" target="_blank"><?php echo $bd->verNombre($usuarios[$i]->getNumero())[0][0]; ?></a></td>
                                 <?php }else{?>
-                                 <a href=""><?php echo "EDITAR"; ?></a>
+                                 <td><a href="../phonebook" target="_blank">EDITAR</a></td>
                                 <?php }?>
-                        </td>
 
                          <?php //antes se mostraba el channel echo $usuarios[$i]->getChannel(); ?>
 			 
