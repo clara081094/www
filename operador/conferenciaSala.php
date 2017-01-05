@@ -4,7 +4,7 @@
     include_once '/var/www/html/funciones.php';
     $conferencia = new Confami(); 
     $bd = new Funciones();
-    header("refresh: 4; url=../gestion_conferencia");
+    header("refresh: 4; url=../conferencia");
 ?>
 <html>
     <head>
@@ -14,9 +14,13 @@
 	<link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/css/animate.min.css" type="text/css">
-    	<link rel="stylesheet" href="../../www/html/bootstrap/css/creative.css" type="text/css">
     </head>
     <body>
+	<ul class="list-inline">
+                <li><a href="../inicio"><img src="/www/html/bootstrap/img/phonestudio.png"></a></li>
+                <li><div style="background-color:a6af0a; height:1px; width:1400;"></div></li>
+                </ul>
+
 	<div id="principal" class="container">
 	   <div class="row">
 	   <?php if($conferencia->conferenciaHay()){

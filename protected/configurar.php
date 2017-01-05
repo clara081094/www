@@ -11,7 +11,6 @@ $mensaje=$_GET['msm'];
 	<link rel="stylesheet" href="../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
     	<link rel="stylesheet" href="../www/html/bootstrap/css/animate.min.css" type="text/css"
-	<link rel="stylesheet" href="../www/html/bootstrap/css/creative.css" type="text/css">
 
     </head>
     <body>

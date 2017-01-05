@@ -26,5 +26,5 @@ if(isset($_POST["btnunmute"]))
 	sleep(3);
 }
 
-header('Location: '."../gestion_conferencia");
+header('Location: '."../conferencia");
 ?>

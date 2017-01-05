@@ -12,18 +12,21 @@
 	<link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
     	<link rel="stylesheet" href="../../www/html/bootstrap/css/animate.min.css" type="text/css">
-    	<link rel="stylesheet" href="../../www/html/bootstrap/css/creative.css" type="text/css">
 	<link rel="stylesheet" href="../../www/html/bootstrap/css/dataTables.bootstrap.min.css" type="text/css">
 
     </head>
     <body>
+	<ul class="list-inline">
+                <li><a href="../inicio"><img src="/www/html/bootstrap/img/phonestudio.png"></a></li>
+                <li><div style="background-color:a6af0a; height:1px; width:1400;"></div></li>
+                </ul>
+
 	<div id="principal" class="container">
 	   <div class="row">
-		 <br>
-		 <h1>PHONEBOOK</h1><br>
+		 <div class="col-sm-6">
+		 <h2>PHONEBOOK</h2><br>
 		 <a data-toggle="modal" href="#confirm-change" type="button" class="btn btn-primary">AGREGAR NUEVO</a>
 		 <br><br>
-		 <div class="col-sm-8">
 		 <table id="mytable" class="table table-bordered table-striped sortable">
 		    <thead><tr>
 			 <th style="display:none;">ID</th>

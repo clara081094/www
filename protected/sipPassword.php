@@ -1,7 +1,6 @@
 <?php
 include_once '/home/confAMI.php';
 $sip = new Confami(); 
-$msm = "";
 $msm = $_GET['msm'];
 ?>
 <html>
@@ -12,9 +11,13 @@ $msm = $_GET['msm'];
         <link rel="stylesheet" href="../../www/html/bootstrap/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="../../www/html/bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="../../www/html/bootstrap/css/animate.min.css" type="text/css">
-        <link rel="stylesheet" href="../../www/html/bootstrap/css/creative.css" type="text/css">
  </head>
  <body>
+		<ul class="list-inline">
+		<li><a href="../inicio"><img src="/www/html/bootstrap/img/phonestudio.png"></a></li>
+		<li><div style="background-color:a6af0a; height:1px; width:1400;"></div></li>
+		</ul>
+
 
 	<?php if($msm!=null){ ?>
 	<div id="myMod" class="modal" data-keyboard="false" data-backdrop="static">
@@ -28,10 +31,10 @@ $msm = $_GET['msm'];
 		header("refresh: 2; url=../extensiones");
 	}?> 
 	
-        <div id="principal" class="container">
-           <div class="row">
-		<div class="col-sm-4">
-		<h1>EXTENSIONES-SIP</h1>
+	<div class="container">	
+        <div class="row">
+		<div class="col-xs-6 col-md-4 ">
+		<h2>EXTENSIONES-SIP</h2>
 		<table class="table">
 		<thead>
 			
@@ -41,7 +44,7 @@ $msm = $_GET['msm'];
 			<?php for($i=0;$i<sizeof($usuarios);$i++){ ?>
 			<tr>
 			<td><?php echo "EXTENSION ".$usuarios[$i]; ?></td>
-			<td><a data-toggle="modal" data-id="<?php echo $usuarios[$i];?>" class="open btn btn-danger" href="#confirm-change">CAMBIAR PASSWORD</a></td>
+			<td><a data-toggle="modal" data-id="<?php echo $usuarios[$i];?>" class="open btn btn-primary" href="#confirm-change">CAMBIAR PASSWORD</a></td>
 			</tr>
 			<?php	} ?>
 		</tbody>

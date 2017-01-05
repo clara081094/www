@@ -20,7 +20,12 @@ $mes="borrar";
 	<link rel="stylesheet" type="text/css" href="../www/html/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../www/html/bootstrap/css/bootstrap-theme.min.css">
     </head>
-    <body>		
+    <body>
+	<ul class="list-inline">
+                <li><a href="../inicio"><img src="/www/html/bootstrap/img/phonestudio.png"></a></li>
+                <li><div style="background-color:a6af0a; height:1px; width:1400;"></div></li>
+                </ul>
+
 	<div id="principal" class="container">
 	   <div class="row">
 		<div class="col-sm-12">
